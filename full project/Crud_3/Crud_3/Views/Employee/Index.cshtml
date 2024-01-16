@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Crud_3.Models.Employee>
+@{
+    ViewData["Title"] = "Index";
+}
+@* @if(TempData["success"] != null)
+{
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script> src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" </script>
+<script> toastr.success('@TempData["success"]'); <script/>
+<h2>@TempData["success"]</h2>
+} *@
+
+@if (TempData["success"] != null)
+{
+
+
+
+    <script src="~/lib/jquery/dist/jquery.js" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    </script>
+    <script>toastr.success('@TempData["success"]');</script>
+    <h2 @TempData["success"] />
+}
+
+
+@if(TempData["Error"]!=null){
+
+ 
+
+                <script src="~/lib/jquery/dist/jquery.js" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+</script>
+<script> toastr.success('@TempData["Error"]'); </script>
+<h2 @TempData["Error"] />
+}
+
+<h1>Index</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+        <h1 class="text-center text-primary">Employee Record</h1>
+        <a class="btn btn-sm btn-success m-1" asp-controller="Employee" asp-action="Create">Create</a>
+        <table class="table table-bordered">
+                <tr class="text-center">
+                    <th>Employee</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Salary</th>
+                    <th> Action</th>
+                </tr>
+                @foreach(var d in Model)
+                {
+                    <tr class="text-center">
+                        <td>@d.Id</td>
+                        <td>@d.Name</td>
+                        <td>@d.City</td>
+                        <td>@d.State</td>
+                        <td>@d.Salary</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" asp-controller="Employee" asp-action="Edit" asp-route-id="@d.Id">Edit</a>
+                            <a class="btn btn-sm btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@d.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

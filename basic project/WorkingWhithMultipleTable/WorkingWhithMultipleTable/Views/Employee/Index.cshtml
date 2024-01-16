@@ -1,0 +1,55 @@
+﻿@* @model IEnumerable<WorkingWhithMultipleTable.Models.Employee> *@
+@* @model WorkingWhithMultipleTable.Models.View.Emp_Dep *@
+@* @model WorkingWhithMultipleTable.Models.ViewModel.Emp_Dep *@
+@* @model WorkingWhithMultipleTable.Models.ViewModel; *@
+@model WorkingWhithMultipleTable.Models.ViewModel.Emp_Dep;
+
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-info text-center p-1 border border-dark">Employee Details</h1>
+          <table class="table table-bordered text-center">
+              <thead class="bg-dark text-light">
+                  <tr>
+                      <th>EmployeeId</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                       
+                        <th>Gender</th>
+                        <th>Department Name</th>
+                        <th>Department Code</th>
+                        <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                    @foreach(var d in Model.Employees)
+                    {
+                        <tr>
+                            <td>@d.EmployeeId</td>
+                            <td>@d.FirstName</td>
+                            <td>@d.LastName</td>
+                           
+                            <td>@d.Gender</td>
+                            <td>@d.Department.DepartmentName</td>
+                            <td>@d.Department.DepartmentCode</td>
+                            
+                            <td>
+                                <a class="btn btn-sm btn-primary" asp-controller="Employee" asp-action="Details" asp-route-id="@d.EmployeeId">Edit</a>
+                                <a class="btn btn-sm btn-danger" asp-action="" asp-controller="Employee" asp-route-id="@d.EmployeeId">Delete</a>
+                                <a class="btn btn-sm btn-warning" asp-action="" asp-controller="Employee" asp-route-id="@d.EmployeeId">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+          </table>
+    </div>
+    </div>
+</div>
+

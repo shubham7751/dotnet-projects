@@ -1,0 +1,65 @@
+﻿@model ADO_dotnet.Models.AllModels
+
+@{
+    ViewData["Title"] = "Student Data";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+<h3>Student List</h3>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                   
+                    <th scope="col">Student Id</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">EmailAddress </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+                    if(Model.studentlist!=null && Model.studentlist.Count > 0)
+                    {
+                        foreach(var items in Model.studentlist)
+                        {
+                            <tr>
+                               
+                                <td>@items.StudentId</td>
+                                <td>@items.StudentName</td>
+                                <td>@items.EmailAddress</td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+                }
+
+
+
+              @*  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr> *@
+            </tbody>
+        </table>
+
+    </div>
+</div>

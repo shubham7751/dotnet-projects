@@ -1,0 +1,38 @@
+﻿@model WebApplication2_My4.Models.Employee
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>Employee</h4>
+<hr />
+<div>
+    <div>
+        @Html.ValidationSummary()
+   
+   
+    @using (Html.BeginForm("Submit", "Home", FormMethod.Post))
+    {
+       
+
+        @Html.TextBox("Firstname") <br /> <br />
+        @Html.ValidationMessage("Enter Firstname")
+        @Html.TextBox("Lastname") <br />
+        @Html.ValidationMessage("Enter your last name")
+        <br />
+        @Html.TextBox("Email") <br />
+        <br />
+        @Html.TextBox("Age") <br />
+
+        <input type="submit" value="Click Me" />
+    }
+
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
